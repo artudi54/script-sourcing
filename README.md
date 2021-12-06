@@ -1,5 +1,5 @@
 # Script sourcing
-This shell library provides utilites for sourcing scripts in larger bash or zsh codebases.
+This shell library provides utilites for sourcing scripts in relative manner in larger bash or zsh codebases.
 
 ## Provided functions
 
@@ -16,7 +16,7 @@ echo "$scriptDir"
 `include` is a wrapper function for `source` builtin. It provides an alternative to `source` command, letting calling script to source another in two ways:
 
 - by script's absolute path
-- by script's path relative to calling script
+- by script's path relative to the calling script
 
 Optionally it can take more than one argument and these arguments will be passed to the sourced script.
 
