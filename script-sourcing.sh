@@ -5,7 +5,7 @@ if [[ -v BASH_VERSION ]]; then
     __script_directory() {
         local num="$1"
         if [[ -z "${BASH_SOURCE[$num]}" ]]; then
-            echo "script-directory: not called from script" 1>&2
+            echo "script_directory: not called from script" 1>&2
             return 1
         fi
         local directory="$(dirname "$(readlink -e "${BASH_SOURCE[$num]}")")"
@@ -16,7 +16,7 @@ elif [[ -v ZSH_VERSION ]]; then
         local num="$1"
         local file="$(readlink -e "${funcfiletrace[$num]%:*}")"
         if [[ -z "$file" ]]; then
-            echo "script-directory: not called from script" 1>&2
+            echo "script_directory: not called from script" 1>&2
             return 1
         fi
         local directory="$(dirname "$file")"
@@ -29,7 +29,7 @@ fi
 
 # Public command to get script directory. Works only when called from other script.
 script_directory() {
-    __script-directory 2
+    __script_directory 2
 }
 
 # Include command for sourcing files relative to calling script file or absolute path files
